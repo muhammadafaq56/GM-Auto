@@ -145,128 +145,99 @@ img { display: block; max-width: 100%; }
 
 #hero {
     min-height: 100vh; display: flex; align-items: center;
-    position: relative; overflow: hidden; background: #0b0c10;
+    position: relative; overflow: hidden; background: var(--navy);
 }
 .hero-bg {
     position: absolute; inset: 0;
     background: url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1200&fm=webp&q=75') center/cover no-repeat;
-    opacity: .12; animation: bg-drift 20s ease-in-out infinite alternate;
+    opacity: .15; animation: bg-drift 18s ease-in-out infinite alternate;
 }
-.hero-radial {
+@keyframes bg-drift {
+    from { transform: scale(1.04) translate(0,0); }
+    to { transform: scale(1.1) translate(-1.5%, .5%); }
+}
+.hero-grad {
     position: absolute; inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(192,57,43,.22) 0%, transparent 60%),
-                linear-gradient(180deg, rgba(11,12,16,.96) 0%, rgba(15,23,42,.94) 100%);
+    background: linear-gradient(135deg, rgba(26,26,46,.97) 0%, rgba(26,26,46,.82) 55%, rgba(192,57,43,.2) 100%);
 }
+.hero-content { position: relative; z-index: 2; }
 
-.hero-live-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(192,57,43,.12); border: 1px solid rgba(192,57,43,.32);
-    color: #f87171; font-family: var(--fh); font-size: .7rem; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; padding: 7px 18px;
-    border-radius: 50px; margin-bottom: 22px;
+.live-badge {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: rgba(192,57,43,.14); border: 1px solid rgba(192,57,43,.35);
+    color: #f4a29a; font-family: var(--fh); font-size: .68rem; font-weight: 800;
+    letter-spacing: 3px; text-transform: uppercase; padding: 7px 16px;
+    border-radius: 50px; margin-bottom: 26px;
 }
-.hlb-dot { width: 7px; height: 7px; background: #25d366; border-radius: 50%; animation: blink 1.6s infinite; }
+.live-dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: blink 1.6s ease infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .15; } }
 
 .hero-h1 {
     font-family: var(--fh); font-weight: 900; color: #fff;
-    font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.08;
-    letter-spacing: -1px; margin-bottom: 18px;
+    font-size: clamp(2.5rem, 5.5vw, 5rem); line-height: 1.06;
+    letter-spacing: -1px; margin-bottom: 20px;
 }
-.hero-gradient-text {
-    background: linear-gradient(135deg, #e74c3c 0%, #ff7675 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
+.hero-h1 em { color: var(--red); font-style: normal; }
 
 .hero-p {
-    font-size: 1rem; color: #94a3b8; line-height: 1.7;
-    max-width: 500px; margin-bottom: 22px;
+    font-size: 1.02rem; color: rgba(255,255,255,.68); line-height: 1.78;
+    max-width: 500px; margin-bottom: 32px;
 }
 
-.hero-bullets {
-    display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px;
-}
-.hb-item {
-    display: flex; align-items: center; gap: 9px;
-    font-size: .86rem; color: #cbd5e1; font-family: var(--fh); font-weight: 600;
-}
-.hb-item i { color: var(--red); font-size: .9rem; }
+.hero-btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
 
-.hero-actions {
-    display: flex; gap: 14px; flex-wrap: wrap;
+.btn-primary-red {
+    font-family: var(--fh); font-weight: 800; font-size: .85rem;
+    letter-spacing: .8px; text-transform: uppercase;
+    background: var(--red); color: #fff; padding: 14px 30px;
+    border-radius: 8px; border: none; cursor: pointer; display: inline-flex;
+    align-items: center; gap: 9px; transition: all .3s; text-decoration: none;
+    box-shadow: 0 5px 22px rgba(192,57,43,.38);
 }
-.hero-btn-call {
-    background: linear-gradient(135deg, var(--red) 0%, #96281b 100%);
-    color: #fff; font-family: var(--fh); font-weight: 800; font-size: .9rem;
-    padding: 15px 28px; border-radius: 10px; display: inline-flex; align-items: center;
-    gap: 10px; text-decoration: none; transition: all .28s;
-    box-shadow: 0 6px 24px rgba(192,57,43,.4);
+.btn-primary-red:hover { background: var(--red-dk); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,57,43,.48); }
+.btn-ghost {
+    font-family: var(--fh); font-weight: 700; font-size: .85rem;
+    letter-spacing: .8px; text-transform: uppercase; background: transparent;
+    color: #fff; padding: 13px 28px; border-radius: 8px; text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,.28); display: inline-flex;
+    align-items: center; gap: 9px; transition: all .3s;
 }
-.hero-btn-call:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(192,57,43,.55); }
+.btn-ghost:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); color: #fff; transform: translateY(-2px); }
+.btn-wa {
+    font-family: var(--fh); font-weight: 800; font-size: .82rem;
+    letter-spacing: .8px; text-transform: uppercase; background: #25d366;
+    color: #fff; padding: 12px 22px; border-radius: 8px; display: inline-flex;
+    align-items: center; gap: 8px; transition: all .3s; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(37,211,102,.3);
+}
+.btn-wa:hover { background: #1ead54; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(37,211,102,.4); }
 
-.hero-btn-wa {
-    background: #25d366; color: #fff; font-family: var(--fh); font-weight: 800;
-    font-size: .9rem; padding: 15px 28px; border-radius: 10px;
-    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
-    transition: all .28s; box-shadow: 0 6px 20px rgba(37,211,102,.25);
+.hero-pills { display: flex; flex-direction: column; gap: 12px; padding-left: 32px; }
+.pill {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+    border-radius: 13px; padding: 16px 20px; cursor: pointer;
+    transition: all .32s cubic-bezier(.25,.8,.25,1); position: relative; overflow: hidden;
+    backdrop-filter: blur(4px);
 }
-.hero-btn-wa:hover { color: #fff; transform: translateY(-3px); background: #1ead54; box-shadow: 0 8px 26px rgba(37,211,102,.35); }
-
-/* Luxury Workshop Showcase Card */
-.hero-luxury-card {
-    background: rgba(15,23,42,.75); border: 1px solid rgba(255,255,255,.12);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-radius: 24px; padding: 28px 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+.pill::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--red); transform: scaleY(0); transition: transform .3s;
+    border-radius: 0 3px 3px 0;
 }
-.hlc-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08);
-    margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+.pill:hover { background: rgba(192,57,43,.1); border-color: rgba(192,57,43,.3); transform: translateX(-5px); }
+.pill:hover::before { transform: scaleY(1); }
+.pill-ico {
+    width: 42px; height: 42px; background: rgba(192,57,43,.14); border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: #f4a29a; flex-shrink: 0; transition: background .3s;
 }
-.hlc-title-wrap { display: flex; align-items: center; gap: 12px; }
-.hlc-ico {
-    width: 42px; height: 42px; background: rgba(192,57,43,.2);
-    border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    color: var(--red); font-size: 1.1rem; flex-shrink: 0;
-}
-.hlc-title { font-family: var(--fh); font-weight: 900; font-size: .88rem; color: #fff; letter-spacing: 1px; }
-.hlc-sub { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
-.hlc-open-pill {
-    background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.3);
-    color: #4ade80; font-family: var(--fh); font-size: .65rem; font-weight: 800;
-    padding: 5px 12px; border-radius: 50px; display: inline-flex; align-items: center; gap: 6px;
-    letter-spacing: 1px; text-transform: uppercase;
-}
-.op-dot { width: 6px; height: 6px; background: #25d366; border-radius: 50%; animation: blink 1.4s infinite; }
-
-.hlc-grid-title {
-    font-family: var(--fh); font-size: .68rem; font-weight: 800;
-    letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 12px;
-}
-.hlc-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-}
-.hlc-card {
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-    border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px;
-    cursor: pointer; transition: all .25s;
-}
-.hlc-card:hover {
-    background: rgba(192,57,43,.18); border-color: rgba(192,57,43,.4);
-    transform: translateY(-2px);
-}
-.hlc-card-ico {
-    width: 34px; height: 34px; background: rgba(255,255,255,.06);
-    border-radius: 8px; display: flex; align-items: center; justify-content: center;
-    color: var(--red); font-size: .9rem; flex-shrink: 0;
-}
-.hlc-card-name { font-family: var(--fh); font-weight: 800; font-size: .78rem; color: #fff; }
-.hlc-card-desc { font-size: .65rem; color: #94a3b8; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 110px; }
-
-.hlc-footer {
-    margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(255,255,255,.08);
-    font-size: .72rem; color: #94a3b8; display: flex; align-items: center; gap: 8px;
-}
+.pill:hover .pill-ico { background: rgba(192,57,43,.28); }
+.pill-text { flex: 1; }
+.pill-title { font-family: var(--fh); font-size: .88rem; font-weight: 700; color: #fff; }
+.pill-sub { font-size: .73rem; color: rgba(255,255,255,.4); margin-top: 2px; }
+.pill-arr { color: rgba(255,255,255,.2); transition: all .3s; font-size: .85rem; }
+.pill:hover .pill-arr { color: var(--red); transform: translateX(4px); }
 
 .ticker-bar { background: var(--red); overflow: hidden; white-space: nowrap; position: relative; z-index: 2; }
 .ticker-inner { display: inline-block; animation: tick 28s linear infinite; padding: 14px 0; }
@@ -794,99 +765,62 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
 
 <section id="hero">
     <div class="hero-bg"></div>
-    <div class="hero-radial"></div>
+    <div class="hero-grad"></div>
     <div class="ctr" style="width:100%">
-        <div class="row align-items-center" style="min-height:92vh;padding:110px 0 50px">
+        <div class="row align-items-center" style="min-height:100vh;padding:100px 0 60px">
             <div class="col-lg-6 hero-content">
-                <div class="hero-live-badge">
-                    <span class="hlb-dot"></span>
-                    <span>#1 Rated Auto Workshop in Sialkot &bull; 23+ Yrs</span>
-                </div>
-                <h1 class="hero-h1">
-                    Your Car Deserves<br>
-                    <span class="hero-gradient-text">Master Workmanship</span>
-                </h1>
+                <div class="live-badge"><span class="live-dot"></span> Defence Road, Sialkot</div>
+                <h1 class="hero-h1">Your Car in<br><em>Expert Hands</em></h1>
                 <p class="hero-p">
-                    Sialkot's premier auto workshop for 100% genuine lubricants, 3D laser wheel alignment, car A/C gas refill, denting bake-oven paint, and computerized OBD tuning.
+                    GM Auto Parts &amp; Workshop has served Sialkot for years — engine oil, wheel alignment, car AC, denting, electrical work, and full mechanical repairs. Genuine parts. Honest prices.
                 </p>
-                <div class="hero-bullets">
-                    <div class="hb-item"><i class="fas fa-check-circle"></i> 100% Genuine Oils (Shell, Total, ZIC, Mobil 1)</div>
-                    <div class="hb-item"><i class="fas fa-check-circle"></i> Computerized 3D Laser Wheel Alignment</div>
-                    <div class="hb-item"><i class="fas fa-check-circle"></i> Transparent Upfront Pricing &amp; No Hidden Fees</div>
-                </div>
-                <div class="hero-actions">
-                    <a href="tel:+923008610621" class="hero-btn-call">
-                        <i class="fas fa-phone-alt"></i> Call +92 300 8610621
-                    </a>
-                    <a href="https://wa.me/923008610621" class="hero-btn-wa" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
+                <div class="hero-btn-group">
+                    <a href="tel:+923008610621" class="btn-primary-red"><i class="fas fa-phone-alt"></i> Call Now</a>
+                    <a href="https://wa.me/923008610621" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#services" class="btn-ghost"><i class="fas fa-th"></i> Services</a>
                 </div>
             </div>
-            
-            <div class="col-lg-6 hero-showcase-col">
-                <div class="hero-luxury-card">
-                    <div class="hlc-header">
-                        <div class="hlc-title-wrap">
-                            <div class="hlc-ico"><i class="fas fa-gears"></i></div>
-                            <div>
-                                <div class="hlc-title">GM AUTO PARTS &amp; WORKSHOP</div>
-                                <div class="hlc-sub">Defence Road, Near Shell Petrol Pump, Sialkot</div>
-                            </div>
+            <div class="col-lg-6">
+                <div class="hero-pills">
+                    <div class="pill" onclick="openModal('oil')">
+                        <div class="pill-ico"><i class="fas fa-oil-can"></i></div>
+                        <div class="pill-text">
+                            <div class="pill-title">Engine Oil Change</div>
+                            <div class="pill-sub">Shell, Total, ZIC, Mobil 1 &amp; more</div>
                         </div>
-                        <div class="hlc-open-pill"><span class="op-dot"></span> Open Today</div>
+                        <i class="fas fa-arrow-right pill-arr"></i>
                     </div>
-                    
-                    <div class="hlc-body">
-                        <div class="hlc-grid-title">Quick Select Service:</div>
-                        <div class="hlc-grid">
-                            <div class="hlc-card" onclick="openModal('oil')">
-                                <div class="hlc-card-ico"><i class="fas fa-oil-can"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">Engine Oil Change</div>
-                                    <div class="hlc-card-desc">Shell, Total, ZIC, Mobil 1</div>
-                                </div>
-                            </div>
-                            <div class="hlc-card" onclick="openModal('alignment')">
-                                <div class="hlc-card-ico"><i class="fas fa-bullseye"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">3D Alignment</div>
-                                    <div class="hlc-card-desc">Laser Wheel Geometry</div>
-                                </div>
-                            </div>
-                            <div class="hlc-card" onclick="openModal('ac')">
-                                <div class="hlc-card-ico"><i class="fas fa-snowflake"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">Car A/C Service</div>
-                                    <div class="hlc-card-desc">R134a Gas Refill &amp; Rebuild</div>
-                                </div>
-                            </div>
-                            <div class="hlc-card" onclick="openModal('electric')">
-                                <div class="hlc-card-ico"><i class="fas fa-bolt"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">EFI &amp; OBD Scan</div>
-                                    <div class="hlc-card-desc">Computerized Diagnostic</div>
-                                </div>
-                            </div>
-                            <div class="hlc-card" onclick="openModal('mechanical')">
-                                <div class="hlc-card-ico"><i class="fas fa-wrench"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">Engine &amp; Brakes</div>
-                                    <div class="hlc-card-desc">Full Mechanical Overhaul</div>
-                                </div>
-                            </div>
-                            <div class="hlc-card" onclick="openModal('denting')">
-                                <div class="hlc-card-ico"><i class="fas fa-car-side"></i></div>
-                                <div>
-                                    <div class="hlc-card-name">Denting &amp; Paint</div>
-                                    <div class="hlc-card-desc">Bake Oven Finish</div>
-                                </div>
-                            </div>
+                    <div class="pill" onclick="openModal('alignment')">
+                        <div class="pill-ico"><i class="fas fa-bullseye"></i></div>
+                        <div class="pill-text">
+                            <div class="pill-title">Wheel Alignment &amp; Balancing</div>
+                            <div class="pill-sub">Computerized 3D laser precision</div>
                         </div>
+                        <i class="fas fa-arrow-right pill-arr"></i>
                     </div>
-
-                    <div class="hlc-footer">
-                        <i class="fas fa-shield-halved text-red"></i> 23+ Years Master Experience &bull; Direct Supply Stockist
+                    <div class="pill" onclick="openModal('ac')">
+                        <div class="pill-ico"><i class="fas fa-snowflake"></i></div>
+                        <div class="pill-text">
+                            <div class="pill-title">Car A/C Service &amp; Repair</div>
+                            <div class="pill-sub">Gas refill, compressor, full service</div>
+                        </div>
+                        <i class="fas fa-arrow-right pill-arr"></i>
+                    </div>
+                    <div class="pill" onclick="openModal('electric')">
+                        <div class="pill-ico"><i class="fas fa-bolt"></i></div>
+                        <div class="pill-text">
+                            <div class="pill-title">Electrical &amp; EFI Diagnostics</div>
+                            <div class="pill-sub">OBD scan, ECU, wiring repair</div>
+                        </div>
+                        <i class="fas fa-arrow-right pill-arr"></i>
+                    </div>
+                    <div class="pill" onclick="openModal('mechanical')">
+                        <div class="pill-ico"><i class="fas fa-wrench"></i></div>
+                        <div class="pill-text">
+                            <div class="pill-title">Engine &amp; Mechanical Repair</div>
+                            <div class="pill-sub">Brakes, clutch, suspension, overhaul</div>
+                        </div>
+                        <i class="fas fa-arrow-right pill-arr"></i>
                     </div>
                 </div>
             </div>
