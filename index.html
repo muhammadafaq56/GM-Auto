@@ -235,9 +235,51 @@ img { display: block; max-width: 100%; }
 .pill:hover .pill-ico { background: rgba(192,57,43,.28); }
 .pill-text { flex: 1; }
 .pill-title { font-family: var(--fh); font-size: .88rem; font-weight: 700; color: #fff; }
-.pill-sub { font-size: .73rem; color: rgba(255,255,255,.4); margin-top: 2px; }
-.pill-arr { color: rgba(255,255,255,.2); transition: all .3s; font-size: .85rem; }
 .pill:hover .pill-arr { color: var(--red); transform: translateX(4px); }
+
+/* Animated Car Graphic in Hero */
+.hero-car-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+.hero-car-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%; height: 75%;
+    background: radial-gradient(circle, rgba(192,57,43,.45) 0%, rgba(192,57,43,.12) 50%, transparent 75%);
+    filter: blur(44px);
+    z-index: 1;
+    pointer-events: none;
+}
+.hero-car-img {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 560px; height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.65), 0 0 32px rgba(192,57,43,.3);
+    border: 1.5px solid rgba(255,255,255,.15);
+    animation: hero-car-float 4.2s ease-in-out infinite alternate;
+}
+@keyframes hero-car-float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-14px) rotate(-0.6deg); }
+}
+.hero-car-badge {
+    position: relative; z-index: 3;
+    margin-top: -20px;
+    background: rgba(15,23,42,.92); border: 1px solid rgba(192,57,43,.45);
+    backdrop-filter: blur(12px);
+    color: #fff; font-family: var(--fh); font-size: .78rem; font-weight: 800;
+    padding: 9px 22px; border-radius: 50px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.4);
+    display: inline-flex; align-items: center; gap: 8px;
+    letter-spacing: 1px;
+}
+.hero-car-badge i { color: var(--red); }
 
 .ticker-bar { background: var(--red); overflow: hidden; white-space: nowrap; position: relative; z-index: 2; }
 .ticker-inner { display: inline-block; animation: tick 28s linear infinite; padding: 14px 0; }
@@ -780,47 +822,12 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                     <a href="#services" class="btn-ghost"><i class="fas fa-th"></i> Services</a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="hero-pills">
-                    <div class="pill" onclick="openModal('oil')">
-                        <div class="pill-ico"><i class="fas fa-oil-can"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Engine Oil Change</div>
-                            <div class="pill-sub">Shell, Total, ZIC, Mobil 1 &amp; more</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('alignment')">
-                        <div class="pill-ico"><i class="fas fa-bullseye"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Wheel Alignment &amp; Balancing</div>
-                            <div class="pill-sub">Computerized 3D laser precision</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('ac')">
-                        <div class="pill-ico"><i class="fas fa-snowflake"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Car A/C Service &amp; Repair</div>
-                            <div class="pill-sub">Gas refill, compressor, full service</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('electric')">
-                        <div class="pill-ico"><i class="fas fa-bolt"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Electrical &amp; EFI Diagnostics</div>
-                            <div class="pill-sub">OBD scan, ECU, wiring repair</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('mechanical')">
-                        <div class="pill-ico"><i class="fas fa-wrench"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Engine &amp; Mechanical Repair</div>
-                            <div class="pill-sub">Brakes, clutch, suspension, overhaul</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
+            <div class="col-lg-6 hero-car-col">
+                <div class="hero-car-wrap">
+                    <div class="hero-car-glow"></div>
+                    <img src="assets/img/hero_car.webp" alt="GM Auto Parts &amp; Workshop Sialkot" class="hero-car-img" width="600" height="340">
+                    <div class="hero-car-badge">
+                        <i class="fas fa-wrench"></i> 23+ Years Master Expertise &bull; Defence Road Sialkot
                     </div>
                 </div>
             </div>
