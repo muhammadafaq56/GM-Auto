@@ -688,14 +688,8 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
         scrollbar-width: none;
     }
     .svc-grid::-webkit-scrollbar { display: none; }
-    .svc-page {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        flex: 0 0 84%;
-        scroll-snap-align: start;
-    }
-    .svc-card { scroll-snap-align: none; }
+    .svc-page { display: contents; }
+    .svc-card { flex: 0 0 84%; scroll-snap-align: start; }
     .svc-scroll-hint {
         display: flex; align-items: center; justify-content: center; gap: 8px;
         font-family: var(--fh); font-size: .68rem; font-weight: 700; letter-spacing: 1.5px;
@@ -1000,7 +994,6 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     </div>
 </section>
 
-<div class="sec-divider"><span><i class="fas fa-chevron-down"></i></span></div>
 
 <section class="about-wrap" id="about">
     <div style="background:var(--red);padding:30px 0;position:relative;overflow:hidden">
@@ -1066,7 +1059,6 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     </div>
 </section>
 
-<div class="sec-divider"><span><i class="fas fa-chevron-down"></i></span></div>
 
 <section class="sec" id="testimonials" style="background:#f8f9fa;padding:88px 0;border-top:1px solid #eaeaea;border-bottom:1px solid #eaeaea">
     <div class="ctr">
@@ -1125,7 +1117,6 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
         <div class="testi-scroll-hint"><i class="fas fa-arrow-left"></i> Swipe for more reviews <i class="fas fa-arrow-right"></i></div>
     </div>
 </section>
-<div class="sec-divider"><span><i class="fas fa-chevron-down"></i></span></div>
 
 <section id="contact" style="padding:0">
     <div style="background:var(--navy);padding:48px 0 0">
@@ -1193,7 +1184,6 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     </div>
 </section>
 
-<div class="sec-divider on-dark" style="background:#12122a"><span><i class="fas fa-chevron-down"></i></span></div>
 
 <footer>
     <div class="ctr">
