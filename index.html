@@ -145,128 +145,128 @@ img { display: block; max-width: 100%; }
 
 #hero {
     min-height: 100vh; display: flex; align-items: center;
-    position: relative; overflow: hidden; background: var(--navy);
+    position: relative; overflow: hidden; background: #0b0c10;
 }
 .hero-bg {
     position: absolute; inset: 0;
-    background: url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1600&q=75') center/cover no-repeat;
-    opacity: .15; animation: bg-drift 18s ease-in-out infinite alternate;
+    background: url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1200&fm=webp&q=75') center/cover no-repeat;
+    opacity: .12; animation: bg-drift 20s ease-in-out infinite alternate;
 }
-@keyframes bg-drift {
-    from { transform: scale(1.04) translate(0,0); }
-    to { transform: scale(1.1) translate(-1.5%, .5%); }
-}
-.hero-grad {
+.hero-radial {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(26,26,46,.97) 0%, rgba(26,26,46,.82) 55%, rgba(192,57,43,.2) 100%);
+    background: radial-gradient(circle at 80% 20%, rgba(192,57,43,.22) 0%, transparent 60%),
+                linear-gradient(180deg, rgba(11,12,16,.96) 0%, rgba(15,23,42,.94) 100%);
 }
-.hero-content { position: relative; z-index: 2; }
 
-.live-badge {
-    display: inline-flex; align-items: center; gap: 9px;
-    background: rgba(192,57,43,.14); border: 1px solid rgba(192,57,43,.35);
-    color: #f4a29a; font-family: var(--fh); font-size: .68rem; font-weight: 800;
-    letter-spacing: 3px; text-transform: uppercase; padding: 7px 16px;
-    border-radius: 50px; margin-bottom: 26px;
+.hero-live-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(192,57,43,.12); border: 1px solid rgba(192,57,43,.32);
+    color: #f87171; font-family: var(--fh); font-size: .7rem; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; padding: 7px 18px;
+    border-radius: 50px; margin-bottom: 22px;
 }
-.live-dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; animation: blink 1.6s ease infinite; }
-@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .15; } }
+.hlb-dot { width: 7px; height: 7px; background: #25d366; border-radius: 50%; animation: blink 1.6s infinite; }
 
 .hero-h1 {
     font-family: var(--fh); font-weight: 900; color: #fff;
-    font-size: clamp(2.5rem, 5.5vw, 5rem); line-height: 1.06;
-    letter-spacing: -1px; margin-bottom: 20px;
+    font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.08;
+    letter-spacing: -1px; margin-bottom: 18px;
 }
-.hero-h1 em { color: var(--red); font-style: normal; }
+.hero-gradient-text {
+    background: linear-gradient(135deg, #e74c3c 0%, #ff7675 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
 
 .hero-p {
-    font-size: 1.02rem; color: rgba(255,255,255,.68); line-height: 1.75;
-    max-width: 520px; margin-bottom: 28px;
+    font-size: 1rem; color: #94a3b8; line-height: 1.7;
+    max-width: 500px; margin-bottom: 22px;
 }
 
-.hero-btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-bullets {
+    display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px;
+}
+.hb-item {
+    display: flex; align-items: center; gap: 9px;
+    font-size: .86rem; color: #cbd5e1; font-family: var(--fh); font-weight: 600;
+}
+.hb-item i { color: var(--red); font-size: .9rem; }
 
-.hero-quick-pills {
-    display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
-    scrollbar-width: none; margin-top: 20px; z-index: 5; position: relative;
+.hero-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
 }
-.hero-quick-pills::-webkit-scrollbar { display: none; }
-.hero-quick-pills span {
-    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
-    color: #fff; font-family: var(--fh); font-size: .73rem; font-weight: 700;
-    padding: 7px 15px; border-radius: 50px; white-space: nowrap; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 7px; transition: all .25s;
+.hero-btn-call {
+    background: linear-gradient(135deg, var(--red) 0%, #96281b 100%);
+    color: #fff; font-family: var(--fh); font-weight: 800; font-size: .9rem;
+    padding: 15px 28px; border-radius: 10px; display: inline-flex; align-items: center;
+    gap: 10px; text-decoration: none; transition: all .28s;
+    box-shadow: 0 6px 24px rgba(192,57,43,.4);
 }
-.hero-quick-pills span i { color: var(--red); font-size: .75rem; }
-.hero-quick-pills span:hover { background: rgba(192,57,43,.3); border-color: var(--red); transform: translateY(-2px); }
+.hero-btn-call:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(192,57,43,.55); }
 
-.btn-primary-red {
-    font-family: var(--fh); font-weight: 800; font-size: .85rem;
-    letter-spacing: .8px; text-transform: uppercase;
-    background: var(--red); color: #fff; padding: 14px 30px;
-    border-radius: 8px; border: none; cursor: pointer; display: inline-flex;
-    align-items: center; gap: 9px; transition: all .3s;
-    box-shadow: 0 5px 22px rgba(192,57,43,.38);
+.hero-btn-wa {
+    background: #25d366; color: #fff; font-family: var(--fh); font-weight: 800;
+    font-size: .9rem; padding: 15px 28px; border-radius: 10px;
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    transition: all .28s; box-shadow: 0 6px 20px rgba(37,211,102,.25);
 }
-.btn-primary-red:hover { background: var(--red-dk); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,57,43,.48); }
-.btn-ghost {
-    font-family: var(--fh); font-weight: 700; font-size: .85rem;
-    letter-spacing: .8px; text-transform: uppercase; background: transparent;
-    color: #fff; padding: 13px 28px; border-radius: 8px;
-    border: 1.5px solid rgba(255,255,255,.28); display: inline-flex;
-    align-items: center; gap: 9px; transition: all .3s;
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); color: #fff; transform: translateY(-2px); }
-.btn-wa {
-    font-family: var(--fh); font-weight: 800; font-size: .82rem;
-    letter-spacing: .8px; text-transform: uppercase; background: #25d366;
-    color: #fff; padding: 12px 22px; border-radius: 8px; display: inline-flex;
-    align-items: center; gap: 8px; transition: all .3s;
-    box-shadow: 0 4px 16px rgba(37,211,102,.3);
-}
-.btn-wa:hover { background: #1ead54; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(37,211,102,.4); }
-.btn-outline-nav {
-    font-family: var(--fh); font-weight: 700; font-size: .82rem;
-    letter-spacing: .8px; text-transform: uppercase; background: transparent;
-    color: var(--navy); padding: 11px 22px; border-radius: 8px;
-    border: 1.5px solid var(--border); display: inline-flex;
-    align-items: center; gap: 8px; transition: all .3s;
-}
-.btn-outline-nav:hover { border-color: var(--navy); background: var(--navy); color: #fff; }
+.hero-btn-wa:hover { color: #fff; transform: translateY(-3px); background: #1ead54; box-shadow: 0 8px 26px rgba(37,211,102,.35); }
 
-.hero-stats { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 44px; }
-.hs-item { display: flex; flex-direction: column; gap: 3px; }
-.hs-num { font-family: var(--fh); font-weight: 900; color: #fff; font-size: 1.7rem; line-height: 1; }
-.hs-num span { color: var(--red); }
-.hs-lbl { font-size: .65rem; color: rgba(255,255,255,.4); letter-spacing: 2px; text-transform: uppercase; }
-.hs-sep { width: 1px; height: 38px; background: rgba(255,255,255,.1); align-self: center; }
+/* Luxury Workshop Showcase Card */
+.hero-luxury-card {
+    background: rgba(15,23,42,.75); border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px; padding: 28px 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
+}
+.hlc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+}
+.hlc-title-wrap { display: flex; align-items: center; gap: 12px; }
+.hlc-ico {
+    width: 42px; height: 42px; background: rgba(192,57,43,.2);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    color: var(--red); font-size: 1.1rem; flex-shrink: 0;
+}
+.hlc-title { font-family: var(--fh); font-weight: 900; font-size: .88rem; color: #fff; letter-spacing: 1px; }
+.hlc-sub { font-size: .72rem; color: #94a3b8; margin-top: 2px; }
+.hlc-open-pill {
+    background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.3);
+    color: #4ade80; font-family: var(--fh); font-size: .65rem; font-weight: 800;
+    padding: 5px 12px; border-radius: 50px; display: inline-flex; align-items: center; gap: 6px;
+    letter-spacing: 1px; text-transform: uppercase;
+}
+.op-dot { width: 6px; height: 6px; background: #25d366; border-radius: 50%; animation: blink 1.4s infinite; }
 
-.hero-pills { display: flex; flex-direction: column; gap: 12px; padding-left: 32px; }
-.pill {
-    display: flex; align-items: center; gap: 14px;
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
-    border-radius: 13px; padding: 16px 20px; cursor: pointer;
-    transition: all .32s cubic-bezier(.25,.8,.25,1); position: relative; overflow: hidden;
-    backdrop-filter: blur(4px);
+.hlc-grid-title {
+    font-family: var(--fh); font-size: .68rem; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: #64748b; margin-bottom: 12px;
 }
-.pill::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-    background: var(--red); transform: scaleY(0); transition: transform .3s;
-    border-radius: 0 3px 3px 0;
+.hlc-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
 }
-.pill:hover { background: rgba(192,57,43,.1); border-color: rgba(192,57,43,.3); transform: translateX(-5px); }
-.pill:hover::before { transform: scaleY(1); }
-.pill-ico {
-    width: 42px; height: 42px; background: rgba(192,57,43,.14); border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: #f4a29a; flex-shrink: 0; transition: background .3s;
+.hlc-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px;
+    cursor: pointer; transition: all .25s;
 }
-.pill:hover .pill-ico { background: rgba(192,57,43,.28); }
-.pill-text { flex: 1; }
-.pill-title { font-family: var(--fh); font-size: .88rem; font-weight: 700; color: #fff; }
-.pill-sub { font-size: .73rem; color: rgba(255,255,255,.4); margin-top: 2px; }
-.pill-arr { color: rgba(255,255,255,.2); transition: all .3s; font-size: .85rem; }
-.pill:hover .pill-arr { color: var(--red); transform: translateX(4px); }
+.hlc-card:hover {
+    background: rgba(192,57,43,.18); border-color: rgba(192,57,43,.4);
+    transform: translateY(-2px);
+}
+.hlc-card-ico {
+    width: 34px; height: 34px; background: rgba(255,255,255,.06);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    color: var(--red); font-size: .9rem; flex-shrink: 0;
+}
+.hlc-card-name { font-family: var(--fh); font-weight: 800; font-size: .78rem; color: #fff; }
+.hlc-card-desc { font-size: .65rem; color: #94a3b8; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 110px; }
+
+.hlc-footer {
+    margin-top: 18px; padding-top: 14px; border-top: 1px dashed rgba(255,255,255,.08);
+    font-size: .72rem; color: #94a3b8; display: flex; align-items: center; gap: 8px;
+}
 
 .ticker-bar { background: var(--red); overflow: hidden; white-space: nowrap; position: relative; z-index: 2; }
 .ticker-inner { display: inline-block; animation: tick 28s linear infinite; padding: 14px 0; }
@@ -678,13 +678,13 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     .brand-name { font-size: .88rem; }
     .brand-tag { font-size: .52rem; }
     
-    /* Hero */
-    .hero-h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); }
-    .hero-p { font-size: .95rem; margin-bottom: 28px; }
-    .hero-stats { gap: 16px; margin-top: 32px; }
-    .hs-num { font-size: 1.4rem; }
-    .hs-lbl { font-size: .58rem; }
-    .hs-sep { height: 30px; }
+    /* Hero Responsive */
+    #hero { padding: 90px 0 50px; min-height: auto; }
+    .hero-h1 { font-size: 2.2rem; }
+    .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+    .hero-btn-call, .hero-btn-wa { width: 100%; justify-content: center; padding: 13px 14px; font-size: .8rem; }
+    .hero-showcase-col { margin-top: 32px; }
+    .hlc-grid { grid-template-columns: 1fr 1fr; }
     
     /* Services Grid: 3 cards per row across 3 rows */
     .svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 32px; }
@@ -716,16 +716,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     .sec { padding: 44px 0; }
     .ctr { padding: 0 14px; max-width: 100vw; overflow-x: hidden; }
     
-    /* Hero */
-    .hero-h1 { font-size: 2.1rem; }
-    .live-badge { font-size: .6rem; padding: 6px 12px; margin-bottom: 18px; }
-    .hero-btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
-    .btn-primary-red, .btn-wa { width: 100%; justify-content: center; padding: 12px 10px; font-size: .76rem; letter-spacing: .5px; }
-    .btn-ghost { grid-column: span 2; width: 100%; justify-content: center; padding: 11px 14px; font-size: .76rem; letter-spacing: .5px; }
-    .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); display: grid; gap: 8px; width: 100%; text-align: center; }
-    .hs-sep { display: none; }
-    .hs-item { align-items: center; min-width: 0; }
-    .hs-num { font-size: 1.2rem; }
+    /* Hero Mobile */
+    .hero-h1 { font-size: 2.05rem; }
+    .hero-live-badge { font-size: .62rem; padding: 6px 14px; margin-bottom: 16px; }
+    .hlc-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     
     /* Services 3 Rows x 3 Columns on Mobile */
     .svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 20px; width: 100%; }
@@ -800,69 +794,99 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
 
 <section id="hero">
     <div class="hero-bg"></div>
-    <div class="hero-grad"></div>
+    <div class="hero-radial"></div>
     <div class="ctr" style="width:100%">
-        <div class="row align-items-center" style="min-height:100vh;padding:100px 0 60px">
+        <div class="row align-items-center" style="min-height:92vh;padding:110px 0 50px">
             <div class="col-lg-6 hero-content">
-                <div class="live-badge"><span class="live-dot"></span> Defence Road, Sialkot &bull; 23+ Yrs Exp</div>
-                <h1 class="hero-h1">Your Car in<br><em>Expert Hands</em></h1>
-                <p class="hero-p">
-                    GM Auto Parts &amp; Workshop has served Sialkot drivers for 23+ years — engine oil, wheel alignment, car A/C, denting, electrical work, and full mechanical repairs. 100% genuine parts. Honest prices.
-                </p>
-                <div class="hero-btn-group">
-                    <a href="tel:+923008610621" class="btn-primary-red"><i class="fas fa-phone-alt"></i> Call Now</a>
-                    <a href="https://wa.me/923008610621" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="#services" class="btn-ghost"><i class="fas fa-th"></i> All Services</a>
+                <div class="hero-live-badge">
+                    <span class="hlb-dot"></span>
+                    <span>#1 Rated Auto Workshop in Sialkot &bull; 23+ Yrs</span>
                 </div>
-                <div class="hero-quick-pills">
-                    <span onclick="openModal('oil')"><i class="fas fa-oil-can"></i> Oil Change</span>
-                    <span onclick="openModal('alignment')"><i class="fas fa-bullseye"></i> 3D Alignment</span>
-                    <span onclick="openModal('ac')"><i class="fas fa-snowflake"></i> Car A/C</span>
-                    <span onclick="openModal('electric')"><i class="fas fa-bolt"></i> OBD Tuning</span>
-                    <span onclick="openModal('mechanical')"><i class="fas fa-wrench"></i> Engine Repair</span>
+                <h1 class="hero-h1">
+                    Your Car Deserves<br>
+                    <span class="hero-gradient-text">Master Workmanship</span>
+                </h1>
+                <p class="hero-p">
+                    Sialkot's premier auto workshop for 100% genuine lubricants, 3D laser wheel alignment, car A/C gas refill, denting bake-oven paint, and computerized OBD tuning.
+                </p>
+                <div class="hero-bullets">
+                    <div class="hb-item"><i class="fas fa-check-circle"></i> 100% Genuine Oils (Shell, Total, ZIC, Mobil 1)</div>
+                    <div class="hb-item"><i class="fas fa-check-circle"></i> Computerized 3D Laser Wheel Alignment</div>
+                    <div class="hb-item"><i class="fas fa-check-circle"></i> Transparent Upfront Pricing &amp; No Hidden Fees</div>
+                </div>
+                <div class="hero-actions">
+                    <a href="tel:+923008610621" class="hero-btn-call">
+                        <i class="fas fa-phone-alt"></i> Call +92 300 8610621
+                    </a>
+                    <a href="https://wa.me/923008610621" class="hero-btn-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="hero-pills">
-                    <div class="pill" onclick="openModal('oil')">
-                        <div class="pill-ico"><i class="fas fa-oil-can"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Engine Oil Change</div>
-                            <div class="pill-sub">Shell, Total, ZIC, Mobil 1 & more</div>
+            
+            <div class="col-lg-6 hero-showcase-col">
+                <div class="hero-luxury-card">
+                    <div class="hlc-header">
+                        <div class="hlc-title-wrap">
+                            <div class="hlc-ico"><i class="fas fa-gears"></i></div>
+                            <div>
+                                <div class="hlc-title">GM AUTO PARTS &amp; WORKSHOP</div>
+                                <div class="hlc-sub">Defence Road, Near Shell Petrol Pump, Sialkot</div>
+                            </div>
                         </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
+                        <div class="hlc-open-pill"><span class="op-dot"></span> Open Today</div>
                     </div>
-                    <div class="pill" onclick="openModal('alignment')">
-                        <div class="pill-ico"><i class="fas fa-bullseye"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Wheel Alignment & Balancing</div>
-                            <div class="pill-sub">Computerized 3D laser precision</div>
+                    
+                    <div class="hlc-body">
+                        <div class="hlc-grid-title">Quick Select Service:</div>
+                        <div class="hlc-grid">
+                            <div class="hlc-card" onclick="openModal('oil')">
+                                <div class="hlc-card-ico"><i class="fas fa-oil-can"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">Engine Oil Change</div>
+                                    <div class="hlc-card-desc">Shell, Total, ZIC, Mobil 1</div>
+                                </div>
+                            </div>
+                            <div class="hlc-card" onclick="openModal('alignment')">
+                                <div class="hlc-card-ico"><i class="fas fa-bullseye"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">3D Alignment</div>
+                                    <div class="hlc-card-desc">Laser Wheel Geometry</div>
+                                </div>
+                            </div>
+                            <div class="hlc-card" onclick="openModal('ac')">
+                                <div class="hlc-card-ico"><i class="fas fa-snowflake"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">Car A/C Service</div>
+                                    <div class="hlc-card-desc">R134a Gas Refill &amp; Rebuild</div>
+                                </div>
+                            </div>
+                            <div class="hlc-card" onclick="openModal('electric')">
+                                <div class="hlc-card-ico"><i class="fas fa-bolt"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">EFI &amp; OBD Scan</div>
+                                    <div class="hlc-card-desc">Computerized Diagnostic</div>
+                                </div>
+                            </div>
+                            <div class="hlc-card" onclick="openModal('mechanical')">
+                                <div class="hlc-card-ico"><i class="fas fa-wrench"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">Engine &amp; Brakes</div>
+                                    <div class="hlc-card-desc">Full Mechanical Overhaul</div>
+                                </div>
+                            </div>
+                            <div class="hlc-card" onclick="openModal('denting')">
+                                <div class="hlc-card-ico"><i class="fas fa-car-side"></i></div>
+                                <div>
+                                    <div class="hlc-card-name">Denting &amp; Paint</div>
+                                    <div class="hlc-card-desc">Bake Oven Finish</div>
+                                </div>
+                            </div>
                         </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
                     </div>
-                    <div class="pill" onclick="openModal('ac')">
-                        <div class="pill-ico"><i class="fas fa-snowflake"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Car A/C Service & Repair</div>
-                            <div class="pill-sub">Gas refill, compressor, full service</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('electric')">
-                        <div class="pill-ico"><i class="fas fa-bolt"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Electrical & EFI Diagnostics</div>
-                            <div class="pill-sub">OBD scan, ECU, wiring repair</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
-                    </div>
-                    <div class="pill" onclick="openModal('mechanical')">
-                        <div class="pill-ico"><i class="fas fa-wrench"></i></div>
-                        <div class="pill-text">
-                            <div class="pill-title">Engine & Mechanical Repair</div>
-                            <div class="pill-sub">Brakes, clutch, suspension, overhaul</div>
-                        </div>
-                        <i class="fas fa-arrow-right pill-arr"></i>
+
+                    <div class="hlc-footer">
+                        <i class="fas fa-shield-halved text-red"></i> 23+ Years Master Experience &bull; Direct Supply Stockist
                     </div>
                 </div>
             </div>
@@ -899,7 +923,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d1" onclick="openModal('oil')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/lubricants.jpg" alt="Engine oil change Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-oil-can\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/lubricants.webp" type="image/webp">
+                            <img src="assets/img/services/lubricants.jpg" alt="Engine oil change Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-oil-can\'></i></div>'">
+                        </picture>
                         <span class="card-tag">All Brands</span>
                     </div>
                     <div class="card-body">
@@ -911,7 +938,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d2" onclick="openModal('alignment')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/alignment.jpg" alt="Wheel alignment Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-bullseye\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/alignment.webp" type="image/webp">
+                            <img src="assets/img/services/alignment.jpg" alt="Wheel alignment Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-bullseye\'></i></div>'">
+                        </picture>
                         <span class="card-tag">3D Laser</span>
                     </div>
                     <div class="card-body">
@@ -923,7 +953,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d3" onclick="openModal('ac')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/ac_service.jpg" alt="Car AC service Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-snowflake\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/ac_service.webp" type="image/webp">
+                            <img src="assets/img/services/ac_service.jpg" alt="Car AC service Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-snowflake\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Gas Refill</span>
                     </div>
                     <div class="card-body">
@@ -935,7 +968,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d4" onclick="openModal('denting')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/denting.jpg" alt="Denting &amp; Body Paint Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-car-side\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/denting.webp" type="image/webp">
+                            <img src="assets/img/services/denting.jpg" alt="Denting &amp; Body Paint Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-car-side\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Bake Oven</span>
                     </div>
                     <div class="card-body">
@@ -947,7 +983,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d5" onclick="openModal('electric')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/electric.jpg" alt="Electric work Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-bolt\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/electric.webp" type="image/webp">
+                            <img src="assets/img/services/electric.jpg" alt="Electric work Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-bolt\'></i></div>'">
+                        </picture>
                         <span class="card-tag">OBD Tuning</span>
                     </div>
                     <div class="card-body">
@@ -959,7 +998,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d6" onclick="openModal('mechanical')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/mechanical.jpg" alt="Engine mechanical repair Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-wrench\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/mechanical.webp" type="image/webp">
+                            <img src="assets/img/services/mechanical.jpg" alt="Engine mechanical repair Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-wrench\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Overhaul</span>
                     </div>
                     <div class="card-body">
@@ -971,7 +1013,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d1" onclick="openModal('tyre')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/tyre.jpg" alt="Tyre service Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-circle-dot\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/tyre.webp" type="image/webp">
+                            <img src="assets/img/services/tyre.jpg" alt="Tyre service Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-circle-dot\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Tires/Cell</span>
                     </div>
                     <div class="card-body">
@@ -983,7 +1028,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d2" onclick="openModal('radiator')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/radiator.jpg" alt="Radiator and cooling Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-temperature-high\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/radiator.webp" type="image/webp">
+                            <img src="assets/img/services/radiator.jpg" alt="Radiator and cooling Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-temperature-high\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Coolant</span>
                     </div>
                     <div class="card-body">
@@ -995,7 +1043,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div class="svc-card reveal d3" onclick="openModal('detailing')">
                     <div class="card-bar"></div>
                     <div class="card-img">
-                        <img src="assets/img/services/detailing.jpg" alt="Car detailing Sialkot" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-star\'></i></div>'">
+                        <picture>
+                            <source srcset="assets/img/services/detailing.webp" type="image/webp">
+                            <img src="assets/img/services/detailing.jpg" alt="Car detailing Sialkot" loading="lazy" decoding="async" width="400" height="260" onerror="this.parentElement.outerHTML='<div class=\'card-no-img\'><i class=\'fas fa-star\'></i></div>'">
+                        </picture>
                         <span class="card-tag">Polish</span>
                     </div>
                     <div class="card-body">
@@ -1333,15 +1384,15 @@ const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersectin
 document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
 
 const M = {
-    oil: { img: 'assets/img/services/lubricants.jpg', ico: '🛢️', tag: 'Lubricants', title: 'Engine Oil Change & Lubricants', desc: 'We stock 100% genuine engine oils, gear oils, brake fluids, coolants and additives for all Japanese, Korean, European and local vehicles. Every product is OEM-grade and brand-authentic.', feats: ['<strong>Brands in stock:</strong> Shell Helix, Total Quartz, ZIC, Mobil 1, Caltex Havoline, Guard, Kixx, Castrol, Havoline.', '<strong>All grades:</strong> 0W-20, 5W-30, 5W-40, 10W-40, 15W-40, 20W-50 — synthetic and mineral.', '<strong>Filter service:</strong> Oil filter, air filter, cabin filter and fuel filter replacement.', '<strong>Gear & transmission fluid</strong> for manual and automatic gearboxes.', 'Free basic vehicle check with every oil change.'] },
-    alignment: { img: 'assets/img/services/alignment.jpg', ico: '🎯', tag: 'Wheel Services', title: 'Wheel Alignment & Balancing', desc: 'Pulling steering, vibration at speed, or uneven tire wear? Our 3D laser alignment system corrects wheel geometry to exact factory specifications — extending tire life and improving fuel economy.', feats: ['Computerized 3D laser alignment to OEM factory specs.', 'Dynamic rim balancing for smooth, vibration-free driving.', 'Camber, caster and toe angle adjustment.', 'Tie rod and steering rack condition check included.', 'Improved handling and measurably better fuel efficiency.'] },
-    ac: { img: 'assets/img/services/ac_service.jpg', ico: '❄️', tag: 'A/C Service', title: 'Car A/C Service & Repair', desc: 'AC not cooling? We handle everything — from a simple R134a top-up to a full compressor rebuild. Genuine refrigerant, proper pressure testing, and experienced AC technicians.', feats: ['R134a and R1234yf gas refill with pressure test.', 'Compressor overhaul — clutch, bearing, seals and oil.', 'Condenser, evaporator and expansion valve replacement.', 'Vacuum leak detection and refrigerant recovery.', 'Cabin air filter replacement and duct sanitization.'] },
-    denting: { img: 'assets/img/services/denting.jpg', ico: '🚗', tag: 'Body Work', title: 'Denting & Body Paint', desc: 'From small parking dents to accident damage — we restore your car\'s body to showroom condition. Computer colour matching means the repair is invisible after finishing.', feats: ['Paintless dent removal (PDR) for minor dents without paint damage.', 'Structural panel straightening, welding and replacement.', 'Computerized paint shade matching — exact colour every time.', 'Bake oven painting for a factory-quality, durable finish.', 'Ceramic coating and paint protection available on request.'] },
-    electric: { img: 'assets/img/services/electric.jpg', ico: '⚡', tag: 'Electrical', title: 'Electric Work & Car Tuning', desc: 'Modern vehicles depend on electronics. Our auto electricians use OBD-II scanners to read every fault code accurately — and fix the real problem, not just clear the light.', feats: ['Full OBD-II diagnostic scan — engine, ABS, airbag, transmission.', 'EFI tuning: fuel injector service, spark plugs, throttle body.', 'ECU programming, idle relearn and sensor calibration.', 'Battery load test, alternator and starter motor diagnosis.', 'Wiring harness repair, fuse boxes, relays and sensors.'] },
-    mechanical: { img: 'assets/img/services/mechanical.jpg', ico: '🔧', tag: 'Mechanical', title: 'Engine & Mechanical Repair', desc: 'From routine servicing to complete engine rebuilds — our mechanics have the skills and equipment for any mechanical job. We tell you what\'s needed before starting work.', feats: ['Engine overhaul: head gasket, piston rings, timing belt and water pump.', 'Full brake service: pads, discs, ABS, brake fluid flush.', 'Clutch replacement and automatic transmission service.', 'Suspension: shocks, bushings, ball joints, tie rods and steering rack.', 'Scheduled preventive maintenance for all makes and mileage intervals.'] },
-    tyre: { img: 'assets/img/services/tyre.jpg', ico: '🔵', tag: 'Tyres & Battery', title: 'Tyre Service & Battery', desc: 'We handle tyre fitting, balancing, rotation and puncture repair for all types of vehicles — cars, SUVs, vans and light commercial. Battery testing and replacement with genuine cells from top brands.', feats: ['Tyre fitting and replacement for all vehicle sizes.', 'Puncture repair and tube/tubeless service.', 'Tyre rotation and pressure check for even wear.', '<strong>Battery brands:</strong> AGS, Osaka, Phoenix, Volta and more.', 'Battery load test and alternator output check.'] },
-    radiator: { img: 'assets/img/services/radiator.jpg', ico: '🌡️', tag: 'Cooling System', title: 'Radiator & Cooling System', desc: 'An overheating engine is a serious problem. We diagnose the root cause — whether it\'s the radiator, water pump, thermostat or coolant — and fix it before it causes major damage.', feats: ['Radiator flush and genuine coolant change.', 'Water pump and thermostat replacement.', 'Radiator repair, re-coring or full replacement.', 'Cooling fan and temperature sensor check.', 'Overheating root cause diagnosis with pressure test.'] },
-    detailing: { img: 'assets/img/services/detailing.jpg', ico: '✨', tag: 'Detailing', title: 'Car Detailing & Polishing', desc: 'Give your car a showroom finish. Our detailing packages cover deep interior cleaning, exterior decontamination, machine polishing to remove swirl marks and scratches, and long-lasting ceramic coating protection.', feats: ['Full interior vacuum, wipe-down and steam clean.', 'Exterior hand wash, clay bar decontamination and dry.', 'Machine polishing to remove swirls, oxidation and fine scratches.', 'Paint sealant or ceramic coating application.', 'Tyre dressing, glass coating and trim restoration.'] }
+    oil: { img: 'assets/img/services/lubricants.webp', ico: '🛢️', tag: 'Lubricants', title: 'Engine Oil Change & Lubricants', desc: 'We stock 100% genuine engine oils, gear oils, brake fluids, coolants and additives for all Japanese, Korean, European and local vehicles. Every product is OEM-grade and brand-authentic.', feats: ['<strong>Brands in stock:</strong> Shell Helix, Total Quartz, ZIC, Mobil 1, Caltex Havoline, Guard, Kixx, Castrol, Havoline.', '<strong>All grades:</strong> 0W-20, 5W-30, 5W-40, 10W-40, 15W-40, 20W-50 — synthetic and mineral.', '<strong>Filter service:</strong> Oil filter, air filter, cabin filter and fuel filter replacement.', '<strong>Gear & transmission fluid</strong> for manual and automatic gearboxes.', 'Free basic vehicle check with every oil change.'] },
+    alignment: { img: 'assets/img/services/alignment.webp', ico: '🎯', tag: 'Wheel Services', title: 'Wheel Alignment & Balancing', desc: 'Pulling steering, vibration at speed, or uneven tire wear? Our 3D laser alignment system corrects wheel geometry to exact factory specifications — extending tire life and improving fuel economy.', feats: ['Computerized 3D laser alignment to OEM factory specs.', 'Dynamic rim balancing for smooth, vibration-free driving.', 'Camber, caster and toe angle adjustment.', 'Tie rod and steering rack condition check included.', 'Improved handling and measurably better fuel efficiency.'] },
+    ac: { img: 'assets/img/services/ac_service.webp', ico: '❄️', tag: 'A/C Service', title: 'Car A/C Service & Repair', desc: 'AC not cooling? We handle everything — from a simple R134a top-up to a full compressor rebuild. Genuine refrigerant, proper pressure testing, and experienced AC technicians.', feats: ['R134a and R1234yf gas refill with pressure test.', 'Compressor overhaul — clutch, bearing, seals and oil.', 'Condenser, evaporator and expansion valve replacement.', 'Vacuum leak detection and refrigerant recovery.', 'Cabin air filter replacement and duct sanitization.'] },
+    denting: { img: 'assets/img/services/denting.webp', ico: '🚗', tag: 'Body Work', title: 'Denting & Body Paint', desc: 'From small parking dents to accident damage — we restore your car\'s body to showroom condition. Computer colour matching means the repair is invisible after finishing.', feats: ['Paintless dent removal (PDR) for minor dents without paint damage.', 'Structural panel straightening, welding and replacement.', 'Computerized paint shade matching — exact colour every time.', 'Bake oven painting for a factory-quality, durable finish.', 'Ceramic coating and paint protection available on request.'] },
+    electric: { img: 'assets/img/services/electric.webp', ico: '⚡', tag: 'Electrical', title: 'Electric Work & Car Tuning', desc: 'Modern vehicles depend on electronics. Our auto electricians use OBD-II scanners to read every fault code accurately — and fix the real problem, not just clear the light.', feats: ['Full OBD-II diagnostic scan — engine, ABS, airbag, transmission.', 'EFI tuning: fuel injector service, spark plugs, throttle body.', 'ECU programming, idle relearn and sensor calibration.', 'Battery load test, alternator and starter motor diagnosis.', 'Wiring harness repair, fuse boxes, relays and sensors.'] },
+    mechanical: { img: 'assets/img/services/mechanical.webp', ico: '🔧', tag: 'Mechanical', title: 'Engine & Mechanical Repair', desc: 'From routine servicing to complete engine rebuilds — our mechanics have the skills and equipment for any mechanical job. We tell you what\'s needed before starting work.', feats: ['Engine overhaul: head gasket, piston rings, timing belt and water pump.', 'Full brake service: pads, discs, ABS, brake fluid flush.', 'Clutch replacement and automatic transmission service.', 'Suspension: shocks, bushings, ball joints, tie rods and steering rack.', 'Scheduled preventive maintenance for all makes and mileage intervals.'] },
+    tyre: { img: 'assets/img/services/tyre.webp', ico: '🔵', tag: 'Tyres & Battery', title: 'Tyre Service & Battery', desc: 'We handle tyre fitting, balancing, rotation and puncture repair for all types of vehicles — cars, SUVs, vans and light commercial. Battery testing and replacement with genuine cells from top brands.', feats: ['Tyre fitting and replacement for all vehicle sizes.', 'Puncture repair and tube/tubeless service.', 'Tyre rotation and pressure check for even wear.', '<strong>Battery brands:</strong> AGS, Osaka, Phoenix, Volta and more.', 'Battery load test and alternator output check.'] },
+    radiator: { img: 'assets/img/services/radiator.webp', ico: '🌡️', tag: 'Cooling System', title: 'Radiator & Cooling System', desc: 'An overheating engine is a serious problem. We diagnose the root cause — whether it\'s the radiator, water pump, thermostat or coolant — and fix it before it causes major damage.', feats: ['Radiator flush and genuine coolant change.', 'Water pump and thermostat replacement.', 'Radiator repair, re-coring or full replacement.', 'Cooling fan and temperature sensor check.', 'Overheating root cause diagnosis with pressure test.'] },
+    detailing: { img: 'assets/img/services/detailing.webp', ico: '✨', tag: 'Detailing', title: 'Car Detailing & Polishing', desc: 'Give your car a showroom finish. Our detailing packages cover deep interior cleaning, exterior decontamination, machine polishing to remove swirl marks and scratches, and long-lasting ceramic coating protection.', feats: ['Full interior vacuum, wipe-down and steam clean.', 'Exterior hand wash, clay bar decontamination and dry.', 'Machine polishing to remove swirls, oxidation and fine scratches.', 'Paint sealant or ceramic coating application.', 'Tyre dressing, glass coating and trim restoration.'] }
 };
 
 function openModal(k) {
