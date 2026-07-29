@@ -17,7 +17,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script type="application/ld+json">
@@ -43,15 +43,17 @@
 </script>
 <style>
 :root {
-    --red: #c0392b;
-    --red-dk: #96281b;
-    --navy: #1a1a2e;
+    --red: #1D4ED8;
+    --red-dk: #1E3A8A;
+    --accent: #EA580C;
+    --accent-dk: #C2410C;
+    --navy: #0F1C3F;
     --light: #f6f6f6;
     --border: #e4e4e4;
     --muted: #6b7280;
     --text: #2d2d2d;
-    --fh: 'Montserrat', sans-serif;
-    --fb: 'Lato', sans-serif;
+    --fh: 'Lexend', sans-serif;
+    --fb: 'Source Sans 3', sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,6 +63,16 @@ body { font-family: var(--fb); color: var(--text); background: #fff; overflow-x:
 h1, h2, h3, h4 { font-family: var(--fh); font-weight: 700; color: var(--navy); }
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
+a, button, .svc-card, .testi-card, .hero-chip, .hsl-item, .pill, .bp { cursor: pointer; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important; scroll-behavior: auto !important;
+    }
+}
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f0f0f0; }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
@@ -79,7 +91,7 @@ img { display: block; max-width: 100%; }
 }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand-ico {
-    width: 40px; height: 40px; background: var(--red); border-radius: 8px;
+    width: 40px; height: 40px; background: var(--accent); border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-size: 1.15rem; flex-shrink: 0;
     transition: transform .3s;
@@ -108,16 +120,16 @@ img { display: block; max-width: 100%; }
 }
 .nav-links a:hover { color: #fff; background: rgba(255,255,255,.1); }
 #nav.scrolled .nav-links a { color: var(--muted); }
-#nav.scrolled .nav-links a:hover { color: var(--red); background: rgba(192,57,43,.06); }
+#nav.scrolled .nav-links a:hover { color: var(--red); background: rgba(29,78,216,.06); }
 
 .nav-call {
     font-family: var(--fh); font-size: .75rem; font-weight: 800;
     letter-spacing: .8px; text-transform: uppercase;
-    background: var(--red); color: #fff; padding: 9px 18px;
+    background: var(--accent); color: #fff; padding: 9px 18px;
     border-radius: 7px; display: flex; align-items: center; gap: 8px;
-    transition: all .25s; box-shadow: 0 3px 12px rgba(192,57,43,.3);
+    transition: all .25s; box-shadow: 0 3px 12px rgba(234,88,12,.3);
 }
-.nav-call:hover { background: var(--red-dk); color: #fff; transform: translateY(-1px); }
+.nav-call:hover { background: var(--accent-dk); color: #fff; transform: translateY(-1px); }
 
 .hbg {
     display: none; flex-direction: column; gap: 5px;
@@ -160,14 +172,14 @@ img { display: block; max-width: 100%; }
 }
 .hero-grad {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(11,12,20,.98) 0%, rgba(26,26,46,.88) 60%, rgba(192,57,43,.15) 100%);
+    background: linear-gradient(160deg, rgba(8,14,32,.98) 0%, rgba(15,28,63,.9) 60%, rgba(29,78,216,.22) 100%);
 }
 .hero-content { position: relative; z-index: 2; }
 
 .live-badge {
     display: inline-flex; align-items: center; gap: 9px;
-    background: rgba(192,57,43,.14); border: 1px solid rgba(192,57,43,.35);
-    color: #f4a29a; font-family: var(--fh); font-size: .68rem; font-weight: 800;
+    background: rgba(37,211,102,.14); border: 1px solid rgba(37,211,102,.35);
+    color: #86e3a8; font-family: var(--fh); font-size: .68rem; font-weight: 800;
     letter-spacing: 3px; text-transform: uppercase; padding: 7px 16px;
     border-radius: 50px; margin-bottom: 22px;
 }
@@ -179,10 +191,10 @@ img { display: block; max-width: 100%; }
     font-size: clamp(2.6rem, 5.5vw, 5rem); line-height: 1.06;
     letter-spacing: -1.5px; margin-bottom: 18px;
 }
-.hero-h1 em { color: var(--red); font-style: normal; }
+.hero-h1 em { color: var(--accent); font-style: normal; }
 
 .hero-p {
-    font-size: .98rem; color: rgba(255,255,255,.6); line-height: 1.75;
+    font-size: .98rem; color: rgba(255,255,255,.65); line-height: 1.75;
     max-width: 480px; margin-bottom: 30px;
 }
 
@@ -192,12 +204,12 @@ img { display: block; max-width: 100%; }
 .btn-primary-red {
     font-family: var(--fh); font-weight: 800; font-size: .85rem;
     letter-spacing: .8px; text-transform: uppercase;
-    background: var(--red); color: #fff; padding: 15px 32px;
+    background: var(--accent); color: #fff; padding: 15px 32px;
     border-radius: 10px; border: none; cursor: pointer; display: inline-flex;
     align-items: center; gap: 9px; transition: all .3s; text-decoration: none;
-    box-shadow: 0 6px 24px rgba(192,57,43,.45);
+    box-shadow: 0 6px 24px rgba(234,88,12,.45);
 }
-.btn-primary-red:hover { background: var(--red-dk); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192,57,43,.55); }
+.btn-primary-red:hover { background: var(--accent-dk); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(234,88,12,.55); }
 
 /* Green call button — used on hero mobile */
 .btn-call-green {
@@ -243,8 +255,8 @@ img { display: block; max-width: 100%; }
     cursor: pointer; transition: all .22s; text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
-.hero-chip i { color: var(--red); font-size: .8rem; }
-.hero-chip:hover, .hero-chip:active { background: rgba(192,57,43,.2); border-color: var(--red); color: #fff; }
+.hero-chip i { color: var(--accent); font-size: .8rem; }
+.hero-chip:hover, .hero-chip:active { background: rgba(234,88,12,.2); border-color: var(--accent); color: #fff; }
 
 .hero-pills { display: flex; flex-direction: column; gap: 12px; padding-left: 32px; }
 .pill {
@@ -256,20 +268,20 @@ img { display: block; max-width: 100%; }
 }
 .pill::before {
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-    background: var(--red); transform: scaleY(0); transition: transform .3s;
+    background: var(--accent); transform: scaleY(0); transition: transform .3s;
     border-radius: 0 3px 3px 0;
 }
-.pill:hover { background: rgba(192,57,43,.1); border-color: rgba(192,57,43,.3); transform: translateX(-5px); }
+.pill:hover { background: rgba(234,88,12,.1); border-color: rgba(234,88,12,.3); transform: translateX(-5px); }
 .pill:hover::before { transform: scaleY(1); }
 .pill-ico {
-    width: 42px; height: 42px; background: rgba(192,57,43,.14); border-radius: 9px;
+    width: 42px; height: 42px; background: rgba(234,88,12,.14); border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: #f4a29a; flex-shrink: 0; transition: background .3s;
+    font-size: 1.1rem; color: #f7b489; flex-shrink: 0; transition: background .3s;
 }
-.pill:hover .pill-ico { background: rgba(192,57,43,.28); }
+.pill:hover .pill-ico { background: rgba(234,88,12,.28); }
 .pill-text { flex: 1; }
 .pill-title { font-family: var(--fh); font-size: .88rem; font-weight: 700; color: #fff; }
-.pill:hover .pill-arr { color: var(--red); transform: translateX(4px); }
+.pill:hover .pill-arr { color: var(--accent); transform: translateX(4px); }
 
 /* Super Simple Clean Hero List */
 .hero-simple-list {
@@ -283,9 +295,9 @@ img { display: block; max-width: 100%; }
     display: flex; align-items: center; justify-content: space-between;
     cursor: pointer; transition: all .25s;
 }
-.hsl-item i { color: var(--red); margin-right: 8px; }
+.hsl-item i { color: var(--accent); margin-right: 8px; }
 .hsl-item .hsl-arr { color: rgba(255,255,255,.3); font-size: .75rem; transition: transform .2s; }
-.hsl-item:hover { background: rgba(192,57,43,.18); border-color: var(--red); transform: translateX(-4px); }
+.hsl-item:hover { background: rgba(234,88,12,.18); border-color: var(--accent); transform: translateX(-4px); }
 .hsl-item:hover .hsl-arr { color: #fff; transform: translateX(3px); }
 
 .ticker-bar { background: var(--red); overflow: hidden; white-space: nowrap; position: relative; z-index: 2; }
@@ -316,7 +328,7 @@ img { display: block; max-width: 100%; }
 .sec-p { font-size: .97rem; color: var(--muted); line-height: 1.78; max-width: 540px; }
 
 .svc-grid-wrap { position: relative; }
-.svc-ghost { position: absolute; bottom: -20px; right: -20px; font-family: var(--fh); font-weight: 900; font-size: 16rem; color: rgba(192,57,43,.04); line-height: 1; letter-spacing: -10px; pointer-events: none; user-select: none; z-index: 0; }
+.svc-ghost { position: absolute; bottom: -20px; right: -20px; font-family: var(--fh); font-weight: 900; font-size: 16rem; color: rgba(29,78,216,.04); line-height: 1; letter-spacing: -10px; pointer-events: none; user-select: none; z-index: 0; }
 .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; position: relative; z-index: 1; }
 .svc-slide { display: contents; }
 .svc-page { display: contents; }
@@ -329,24 +341,24 @@ img { display: block; max-width: 100%; }
 }
 .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.1); border-color: var(--red); }
 .card-bar { height: 4px; background: #e8e8e8; transition: background .3s; }
-.svc-card:hover .card-bar { background: var(--red); }
+.svc-card:hover .card-bar { background: var(--accent); }
 .card-img { height: 185px; background: var(--light); position: relative; overflow: hidden; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.25,.8,.25,1); }
 .svc-card:hover .card-img img { transform: scale(1.07); }
 .card-no-img {
     height: 185px; background: linear-gradient(135deg, #f4f4f4, #eaeaea);
     display: flex; align-items: center; justify-content: center;
-    font-size: 3.2rem; color: rgba(192,57,43,.15);
+    font-size: 3.2rem; color: rgba(29,78,216,.15);
 }
 .card-tag {
-    position: absolute; top: 11px; right: 11px; background: var(--red);
+    position: absolute; top: 11px; right: 11px; background: var(--accent);
     color: #fff; font-family: var(--fh); font-size: .62rem; font-weight: 800;
     letter-spacing: 2px; text-transform: uppercase; padding: 4px 11px; border-radius: 50px;
 }
 .card-body { padding: 22px 24px 26px; }
 .card-row { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
 .card-ico {
-    width: 38px; height: 38px; background: rgba(192,57,43,.09); border-radius: 9px;
+    width: 38px; height: 38px; background: rgba(29,78,216,.09); border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem; color: var(--red); flex-shrink: 0;
 }
@@ -362,7 +374,7 @@ img { display: block; max-width: 100%; }
 .about-wrap { background: #fff; }
 .about-main { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.04); margin-top: 36px; }
 .about-visual {
-    background: linear-gradient(160deg, var(--navy) 0%, #0f0f24 100%);
+    background: linear-gradient(160deg, var(--navy) 0%, #081026 100%);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; justify-content: center;
     padding: 44px;
@@ -370,7 +382,7 @@ img { display: block; max-width: 100%; }
 .about-visual::before {
     content: ''; position: absolute; top: -80px; right: -80px;
     width: 340px; height: 340px;
-    background: radial-gradient(circle, rgba(192,57,43,.35) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(234,88,12,.32) 0%, transparent 70%);
     pointer-events: none;
 }
 .about-vis-tag {
@@ -379,12 +391,12 @@ img { display: block; max-width: 100%; }
     color: rgba(255,255,255,.45); margin-bottom: 16px;
     display: flex; align-items: center; gap: 10px;
 }
-.about-vis-tag::before { content: ''; width: 22px; height: 2px; background: var(--red); }
+.about-vis-tag::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
 .about-big-num {
     font-family: var(--fh); font-weight: 900; font-size: 4rem;
     color: #fff; line-height: 1; letter-spacing: -2px;
 }
-.about-big-num span { color: var(--red); }
+.about-big-num span { color: var(--accent); }
 .about-big-label { font-family: var(--fh); font-size: .95rem; font-weight: 700; color: rgba(255,255,255,.6); margin-top: 6px; letter-spacing: 1px; }
 .about-vis-stats {
     display: grid; grid-template-columns: repeat(3,1fr);
@@ -395,7 +407,7 @@ img { display: block; max-width: 100%; }
 .avs-item { text-align: center; padding: 0 8px; border-right: 1px solid rgba(255,255,255,.08); }
 .avs-item:last-child { border-right: none; }
 .avs-num { font-family: var(--fh); font-weight: 900; font-size: 1.5rem; color: #fff; line-height: 1; }
-.avs-num span { color: var(--red); }
+.avs-num span { color: var(--accent); }
 .avs-lbl { font-size: .65rem; color: rgba(255,255,255,.38); letter-spacing: 2px; text-transform: uppercase; margin-top: 5px; }
 .about-content {
     padding: 44px;
@@ -411,20 +423,20 @@ img { display: block; max-width: 100%; }
     transition: border-color .3s, box-shadow .3s, transform .3s;
     background: #fff;
 }
-.feat-item:hover { border-color: var(--red); box-shadow: 0 6px 20px rgba(192,57,43,.08); transform: translateY(-3px); }
+.feat-item:hover { border-color: var(--red); box-shadow: 0 6px 20px rgba(29,78,216,.08); transform: translateY(-3px); }
 .feat-ico {
-    width: 40px; height: 40px; background: rgba(192,57,43,.09);
+    width: 40px; height: 40px; background: rgba(29,78,216,.09);
     border-radius: 9px; display: flex; align-items: center; justify-content: center;
     font-size: .95rem; color: var(--red); flex-shrink: 0;
     transition: background .3s;
 }
-.feat-item:hover .feat-ico { background: rgba(192,57,43,.18); }
+.feat-item:hover .feat-ico { background: rgba(29,78,216,.18); }
 .feat-t { font-family: var(--fh); font-size: .88rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
 .feat-d { font-size: .78rem; color: var(--muted); line-height: 1.5; }
 
 .brands-box {
-    background: linear-gradient(145deg, #0d0d22 0%, #171738 100%);
-    border: 1.5px solid rgba(192,57,43,.35);
+    background: linear-gradient(145deg, #0a1230 0%, #10193c 100%);
+    border: 1.5px solid rgba(234,88,12,.35);
     border-radius: 16px;
     padding: 24px;
     margin-top: 24px;
@@ -435,14 +447,14 @@ img { display: block; max-width: 100%; }
 .brands-box::before {
     content: ''; position: absolute; top: -60px; right: -60px;
     width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(192,57,43,.25) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(234,88,12,.22) 0%, transparent 70%);
     pointer-events: none;
 }
 .bb-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 14px; }
 .bb-ico {
-    width: 44px; height: 44px; background: rgba(192,57,43,.2); border: 1px solid rgba(192,57,43,.4);
+    width: 44px; height: 44px; background: rgba(234,88,12,.2); border: 1px solid rgba(234,88,12,.4);
     border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    color: var(--red); font-size: 1.1rem; flex-shrink: 0;
+    color: var(--accent); font-size: 1.1rem; flex-shrink: 0;
 }
 .bb-title { font-family: var(--fh); font-weight: 800; font-size: .95rem; color: #fff; line-height: 1.2; }
 .bb-sub { font-size: .74rem; color: rgba(255,255,255,.45); margin-top: 3px; }
@@ -454,12 +466,12 @@ img { display: block; max-width: 100%; }
     transition: all .25s; cursor: default;
 }
 .bp i { color: #25d366; font-size: .7rem; }
-.bp:hover { background: rgba(192,57,43,.25); border-color: var(--red); color: #fff; transform: translateY(-2px); }
+.bp:hover { background: rgba(234,88,12,.25); border-color: var(--accent); color: #fff; transform: translateY(-2px); }
 .bb-footer {
     font-size: .75rem; color: rgba(255,255,255,.4); margin-top: 16px; padding-top: 12px;
     border-top: 1px dashed rgba(255,255,255,.08); display: flex; align-items: center; gap: 8px;
 }
-.bb-footer i { color: var(--red); }
+.bb-footer i { color: var(--accent); }
 
 /* Testimonials: 1 Single Row Horizontal Touch Swipe Carousel */
 .testi-grid {
@@ -484,12 +496,12 @@ img { display: block; max-width: 100%; }
     transition: transform .3s, box-shadow .3s, border-color .3s;
     display: flex; flex-direction: column; justify-content: space-between;
 }
-.testi-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(192,57,43,.09); border-color: rgba(192,57,43,.3); }
+.testi-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(29,78,216,.09); border-color: rgba(29,78,216,.3); }
 .testi-stars { color: #f59e0b; font-size: .9rem; margin-bottom: 16px; display: flex; gap: 4px; }
 .testi-quote { font-size: .93rem; color: #444; line-height: 1.75; font-style: italic; margin-bottom: 24px; }
 .testi-author { display: flex; align-items: center; gap: 14px; }
 .testi-avatar {
-    width: 46px; height: 46px; background: linear-gradient(135deg, var(--navy), var(--red));
+    width: 46px; height: 46px; background: linear-gradient(135deg, var(--navy), var(--accent));
     color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-weight: 800; font-family: var(--fh); font-size: .95rem; flex-shrink: 0;
 }
@@ -552,7 +564,7 @@ img { display: block; max-width: 100%; }
     font-family: var(--fh); font-size: .72rem; font-weight: 700; letter-spacing: 1.5px;
     text-transform: uppercase; color: var(--muted); margin-top: 18px; text-align: center;
 }
-.swipe-hint i { color: var(--red); animation: swipe-shake 1.5s infinite ease-in-out; }
+.swipe-hint i { color: var(--accent); animation: swipe-shake 1.5s infinite ease-in-out; }
 @keyframes swipe-shake { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
 
 
@@ -575,7 +587,7 @@ img { display: block; max-width: 100%; }
 }
 .c-info-card:hover { transform: translateY(-3px); border-color: var(--red); }
 .c-info-ico {
-    width: 46px; height: 46px; background: rgba(192,57,43,.09); border-radius: 10px;
+    width: 46px; height: 46px; background: rgba(29,78,216,.09); border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.1rem; color: var(--red); flex-shrink: 0;
 }
@@ -595,7 +607,7 @@ img { display: block; max-width: 100%; }
     display: flex; flex-direction: column; justify-content: center; color: #fff;
 }
 .c-action-h3 { font-family: var(--fh); font-weight: 800; font-size: 1.8rem; color: #fff; line-height: 1.25; margin-bottom: 14px; }
-.c-action-h3 span { color: var(--red); }
+.c-action-h3 span { color: var(--accent); }
 .c-action-p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 28px; }
 .c-action-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
 .c-gmaps-link {
@@ -603,7 +615,7 @@ img { display: block; max-width: 100%; }
     font-size: .75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     color: rgba(255,255,255,.4); transition: color .25s; text-decoration: none;
 }
-.c-gmaps-link:hover { color: var(--red); }
+.c-gmaps-link:hover { color: var(--accent); }
 
 .contact-map-box {
     border-radius: 16px; overflow: hidden; border: 1.5px solid var(--border);
@@ -617,13 +629,13 @@ img { display: block; max-width: 100%; }
     .contact-map-box { height: 280px; min-height: 280px; }
 }
 
-footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; position: relative; border-top: 4px solid var(--red); }
+footer { background: #0a1230; color: rgba(255,255,255,.55); padding: 58px 0 0; position: relative; border-top: 4px solid var(--accent); }
 .ft-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 56px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .ft-about { font-size: .86rem; line-height: 1.8; margin-top: 16px; max-width: 290px; color: rgba(255,255,255,.55); }
 .ft-col-title { font-family: var(--fh); font-size: .67rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 18px; }
 .ft-links { display: flex; flex-direction: column; gap: 9px; }
 .ft-link { font-size: .86rem; color: rgba(255,255,255,.5); display: flex; align-items: center; gap: 8px; transition: color .2s, padding-left .2s; text-decoration: none; }
-.ft-link i { color: var(--red); font-size: .72rem; }
+.ft-link i { color: var(--accent); font-size: .72rem; }
 .ft-link:hover { color: #fff; padding-left: 4px; }
 .ft-socials { display: flex; gap: 9px; margin-top: 16px; }
 .ft-soc {
@@ -631,7 +643,7 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     border-radius: 7px; display: flex; align-items: center; justify-content: center;
     color: rgba(255,255,255,.45); font-size: .88rem; transition: all .28s; text-decoration: none;
 }
-.ft-soc:hover { background: var(--red); border-color: var(--red); color: #fff; transform: translateY(-3px); }
+.ft-soc:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-3px); }
 .ft-bottom { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
 .ft-bottom p { font-size: .78rem; color: rgba(255,255,255,.35); margin: 0; }
 
@@ -664,7 +676,7 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
 .m-img-ph {
     height: 200px; background: linear-gradient(135deg, #f3f3f3, #e8e8e8);
     border-radius: 16px 16px 0 0; display: flex; align-items: center;
-    justify-content: center; font-size: 4.5rem; color: rgba(192,57,43,.14);
+    justify-content: center; font-size: 4.5rem; color: rgba(29,78,216,.14);
 }
 .m-close {
     position: absolute; top: 13px; right: 13px; width: 34px; height: 34px;
@@ -672,10 +684,10 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
     display: flex; align-items: center; justify-content: center; color: #fff;
     font-size: .85rem; cursor: pointer; transition: background .2s; z-index: 5;
 }
-.m-close:hover { background: var(--red); }
+.m-close:hover { background: var(--accent); }
 .m-body { padding: 26px 28px 30px; }
 .m-tag2 {
-    display: inline-block; background: rgba(192,57,43,.09); border: 1px solid rgba(192,57,43,.22);
+    display: inline-block; background: rgba(29,78,216,.09); border: 1px solid rgba(29,78,216,.22);
     color: var(--red); font-family: var(--fh); font-size: .65rem; font-weight: 800;
     letter-spacing: 2px; text-transform: uppercase; padding: 3px 13px; border-radius: 50px; margin-bottom: 12px;
 }
@@ -683,7 +695,7 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
 .m-desc2 { font-size: .88rem; color: var(--muted); line-height: 1.78; margin-bottom: 20px; }
 .m-feats { display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
 .m-feat { display: flex; align-items: flex-start; gap: 9px; font-size: .86rem; color: var(--text); }
-.m-feat i { color: var(--red); margin-top: 3px; flex-shrink: 0; font-size: .77rem; }
+.m-feat i { color: var(--accent); margin-top: 3px; flex-shrink: 0; font-size: .77rem; }
 .m-ft { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid var(--border); }
 
 /* ==========================================================================
@@ -871,7 +883,7 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
         <a href="#about">About</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact &amp; Location</a>
-        <a href="tel:+923008610621" style="color:var(--red)"><i class="fas fa-phone me-2"></i>+92 300 8610621</a>
+        <a href="tel:+923008610621" style="color:var(--accent)"><i class="fas fa-phone me-2"></i>+92 300 8610621</a>
         <a href="https://wa.me/923008610621" style="color:#25d366" target="_blank"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
     </div>
 </nav>
@@ -1328,7 +1340,7 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
                 <div>
                     <div class="c-info-lbl">Working Hours</div>
                     <div class="c-info-val">Mon – Sat: 8:00 AM – 11:00 PM</div>
-                    <div class="c-info-sub" style="color:var(--red);font-weight:700">Sunday Closed</div>
+                    <div class="c-info-sub" style="color:var(--accent);font-weight:700">Sunday Closed</div>
                 </div>
             </div>
             <div class="c-info-card">
@@ -1404,11 +1416,11 @@ footer { background: #12122a; color: rgba(255,255,255,.55); padding: 58px 0 0; p
             <div>
                 <div class="ft-col-title">Find Us</div>
                 <div class="ft-links">
-                    <span class="ft-link"><i class="fas fa-map-marker-alt" style="color:var(--red)"></i> Defence Road Near Shell Petrol Pump, Fateh Ghar Agency, Sialkot</span>
-                    <a class="ft-link" href="tel:+923008610621"><i class="fas fa-phone" style="color:var(--red)"></i> +92 300 8610621</a>
-                    <a class="ft-link" href="https://wa.me/923008610621" target="_blank"><i class="fab fa-whatsapp" style="color:var(--red)"></i> WhatsApp Chat</a>
-                    <a class="ft-link" href="mailto:irfangm30@gmail.com"><i class="fas fa-envelope" style="color:var(--red)"></i> irfangm30@gmail.com</a>
-                    <span class="ft-link"><i class="fas fa-clock" style="color:var(--red)"></i> Mon–Sat: 8:00 AM – 11:00 PM</span>
+                    <span class="ft-link"><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Defence Road Near Shell Petrol Pump, Fateh Ghar Agency, Sialkot</span>
+                    <a class="ft-link" href="tel:+923008610621"><i class="fas fa-phone" style="color:var(--accent)"></i> +92 300 8610621</a>
+                    <a class="ft-link" href="https://wa.me/923008610621" target="_blank"><i class="fab fa-whatsapp" style="color:var(--accent)"></i> WhatsApp Chat</a>
+                    <a class="ft-link" href="mailto:irfangm30@gmail.com"><i class="fas fa-envelope" style="color:var(--accent)"></i> irfangm30@gmail.com</a>
+                    <span class="ft-link"><i class="fas fa-clock" style="color:var(--accent)"></i> Mon–Sat: 8:00 AM – 11:00 PM</span>
                 </div>
             </div>
         </div>
@@ -1440,20 +1452,20 @@ const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersectin
 document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
 
 const M = {
-    oil: { img: 'assets/img/services/lubricants.webp', ico: '🛢️', tag: 'Lubricants', title: 'Engine Oil Change & Lubricants', desc: 'We stock 100% genuine engine oils, gear oils, brake fluids, coolants and additives for all Japanese, Korean, European and local vehicles. Every product is OEM-grade and brand-authentic.', feats: ['<strong>Brands in stock:</strong> Shell Helix, Total Quartz, ZIC, Mobil 1, Caltex Havoline, Guard, Kixx, Castrol, Havoline.', '<strong>All grades:</strong> 0W-20, 5W-30, 5W-40, 10W-40, 15W-40, 20W-50 — synthetic and mineral.', '<strong>Filter service:</strong> Oil filter, air filter, cabin filter and fuel filter replacement.', '<strong>Gear & transmission fluid</strong> for manual and automatic gearboxes.', 'Free basic vehicle check with every oil change.'] },
-    alignment: { img: 'assets/img/services/alignment.webp', ico: '🎯', tag: 'Wheel Services', title: 'Wheel Alignment & Balancing', desc: 'Pulling steering, vibration at speed, or uneven tire wear? Our 3D laser alignment system corrects wheel geometry to exact factory specifications — extending tire life and improving fuel economy.', feats: ['Computerized 3D laser alignment to OEM factory specs.', 'Dynamic rim balancing for smooth, vibration-free driving.', 'Camber, caster and toe angle adjustment.', 'Tie rod and steering rack condition check included.', 'Improved handling and measurably better fuel efficiency.'] },
-    ac: { img: 'assets/img/services/ac_service.webp', ico: '❄️', tag: 'A/C Service', title: 'Car A/C Service & Repair', desc: 'AC not cooling? We handle everything — from a simple R134a top-up to a full compressor rebuild. Genuine refrigerant, proper pressure testing, and experienced AC technicians.', feats: ['R134a and R1234yf gas refill with pressure test.', 'Compressor overhaul — clutch, bearing, seals and oil.', 'Condenser, evaporator and expansion valve replacement.', 'Vacuum leak detection and refrigerant recovery.', 'Cabin air filter replacement and duct sanitization.'] },
-    denting: { img: 'assets/img/services/denting.webp', ico: '🚗', tag: 'Body Work', title: 'Denting & Body Paint', desc: 'From small parking dents to accident damage — we restore your car\'s body to showroom condition. Computer colour matching means the repair is invisible after finishing.', feats: ['Paintless dent removal (PDR) for minor dents without paint damage.', 'Structural panel straightening, welding and replacement.', 'Computerized paint shade matching — exact colour every time.', 'Bake oven painting for a factory-quality, durable finish.', 'Ceramic coating and paint protection available on request.'] },
-    electric: { img: 'assets/img/services/electric.webp', ico: '⚡', tag: 'Electrical', title: 'Electric Work & Car Tuning', desc: 'Modern vehicles depend on electronics. Our auto electricians use OBD-II scanners to read every fault code accurately — and fix the real problem, not just clear the light.', feats: ['Full OBD-II diagnostic scan — engine, ABS, airbag, transmission.', 'EFI tuning: fuel injector service, spark plugs, throttle body.', 'ECU programming, idle relearn and sensor calibration.', 'Battery load test, alternator and starter motor diagnosis.', 'Wiring harness repair, fuse boxes, relays and sensors.'] },
-    mechanical: { img: 'assets/img/services/mechanical.webp', ico: '🔧', tag: 'Mechanical', title: 'Engine & Mechanical Repair', desc: 'From routine servicing to complete engine rebuilds — our mechanics have the skills and equipment for any mechanical job. We tell you what\'s needed before starting work.', feats: ['Engine overhaul: head gasket, piston rings, timing belt and water pump.', 'Full brake service: pads, discs, ABS, brake fluid flush.', 'Clutch replacement and automatic transmission service.', 'Suspension: shocks, bushings, ball joints, tie rods and steering rack.', 'Scheduled preventive maintenance for all makes and mileage intervals.'] },
-    tyre: { img: 'assets/img/services/tyre.webp', ico: '🔵', tag: 'Tyres & Battery', title: 'Tyre Service & Battery', desc: 'We handle tyre fitting, balancing, rotation and puncture repair for all types of vehicles — cars, SUVs, vans and light commercial. Battery testing and replacement with genuine cells from top brands.', feats: ['Tyre fitting and replacement for all vehicle sizes.', 'Puncture repair and tube/tubeless service.', 'Tyre rotation and pressure check for even wear.', '<strong>Battery brands:</strong> AGS, Osaka, Phoenix, Volta and more.', 'Battery load test and alternator output check.'] },
-    radiator: { img: 'assets/img/services/radiator.webp', ico: '🌡️', tag: 'Cooling System', title: 'Radiator & Cooling System', desc: 'An overheating engine is a serious problem. We diagnose the root cause — whether it\'s the radiator, water pump, thermostat or coolant — and fix it before it causes major damage.', feats: ['Radiator flush and genuine coolant change.', 'Water pump and thermostat replacement.', 'Radiator repair, re-coring or full replacement.', 'Cooling fan and temperature sensor check.', 'Overheating root cause diagnosis with pressure test.'] },
-    detailing: { img: 'assets/img/services/detailing.webp', ico: '✨', tag: 'Detailing', title: 'Car Detailing & Polishing', desc: 'Give your car a showroom finish. Our detailing packages cover deep interior cleaning, exterior decontamination, machine polishing to remove swirl marks and scratches, and long-lasting ceramic coating protection.', feats: ['Full interior vacuum, wipe-down and steam clean.', 'Exterior hand wash, clay bar decontamination and dry.', 'Machine polishing to remove swirls, oxidation and fine scratches.', 'Paint sealant or ceramic coating application.', 'Tyre dressing, glass coating and trim restoration.'] }
+    oil: { img: 'assets/img/services/lubricants.webp', ico: 'fa-oil-can', tag: 'Lubricants', title: 'Engine Oil Change & Lubricants', desc: 'We stock 100% genuine engine oils, gear oils, brake fluids, coolants and additives for all Japanese, Korean, European and local vehicles. Every product is OEM-grade and brand-authentic.', feats: ['<strong>Brands in stock:</strong> Shell Helix, Total Quartz, ZIC, Mobil 1, Caltex Havoline, Guard, Kixx, Castrol, Havoline.', '<strong>All grades:</strong> 0W-20, 5W-30, 5W-40, 10W-40, 15W-40, 20W-50 — synthetic and mineral.', '<strong>Filter service:</strong> Oil filter, air filter, cabin filter and fuel filter replacement.', '<strong>Gear & transmission fluid</strong> for manual and automatic gearboxes.', 'Free basic vehicle check with every oil change.'] },
+    alignment: { img: 'assets/img/services/alignment.webp', ico: 'fa-bullseye', tag: 'Wheel Services', title: 'Wheel Alignment & Balancing', desc: 'Pulling steering, vibration at speed, or uneven tire wear? Our 3D laser alignment system corrects wheel geometry to exact factory specifications — extending tire life and improving fuel economy.', feats: ['Computerized 3D laser alignment to OEM factory specs.', 'Dynamic rim balancing for smooth, vibration-free driving.', 'Camber, caster and toe angle adjustment.', 'Tie rod and steering rack condition check included.', 'Improved handling and measurably better fuel efficiency.'] },
+    ac: { img: 'assets/img/services/ac_service.webp', ico: 'fa-snowflake', tag: 'A/C Service', title: 'Car A/C Service & Repair', desc: 'AC not cooling? We handle everything — from a simple R134a top-up to a full compressor rebuild. Genuine refrigerant, proper pressure testing, and experienced AC technicians.', feats: ['R134a and R1234yf gas refill with pressure test.', 'Compressor overhaul — clutch, bearing, seals and oil.', 'Condenser, evaporator and expansion valve replacement.', 'Vacuum leak detection and refrigerant recovery.', 'Cabin air filter replacement and duct sanitization.'] },
+    denting: { img: 'assets/img/services/denting.webp', ico: 'fa-car-side', tag: 'Body Work', title: 'Denting & Body Paint', desc: 'From small parking dents to accident damage — we restore your car\'s body to showroom condition. Computer colour matching means the repair is invisible after finishing.', feats: ['Paintless dent removal (PDR) for minor dents without paint damage.', 'Structural panel straightening, welding and replacement.', 'Computerized paint shade matching — exact colour every time.', 'Bake oven painting for a factory-quality, durable finish.', 'Ceramic coating and paint protection available on request.'] },
+    electric: { img: 'assets/img/services/electric.webp', ico: 'fa-bolt', tag: 'Electrical', title: 'Electric Work & Car Tuning', desc: 'Modern vehicles depend on electronics. Our auto electricians use OBD-II scanners to read every fault code accurately — and fix the real problem, not just clear the light.', feats: ['Full OBD-II diagnostic scan — engine, ABS, airbag, transmission.', 'EFI tuning: fuel injector service, spark plugs, throttle body.', 'ECU programming, idle relearn and sensor calibration.', 'Battery load test, alternator and starter motor diagnosis.', 'Wiring harness repair, fuse boxes, relays and sensors.'] },
+    mechanical: { img: 'assets/img/services/mechanical.webp', ico: 'fa-wrench', tag: 'Mechanical', title: 'Engine & Mechanical Repair', desc: 'From routine servicing to complete engine rebuilds — our mechanics have the skills and equipment for any mechanical job. We tell you what\'s needed before starting work.', feats: ['Engine overhaul: head gasket, piston rings, timing belt and water pump.', 'Full brake service: pads, discs, ABS, brake fluid flush.', 'Clutch replacement and automatic transmission service.', 'Suspension: shocks, bushings, ball joints, tie rods and steering rack.', 'Scheduled preventive maintenance for all makes and mileage intervals.'] },
+    tyre: { img: 'assets/img/services/tyre.webp', ico: 'fa-circle-dot', tag: 'Tyres & Battery', title: 'Tyre Service & Battery', desc: 'We handle tyre fitting, balancing, rotation and puncture repair for all types of vehicles — cars, SUVs, vans and light commercial. Battery testing and replacement with genuine cells from top brands.', feats: ['Tyre fitting and replacement for all vehicle sizes.', 'Puncture repair and tube/tubeless service.', 'Tyre rotation and pressure check for even wear.', '<strong>Battery brands:</strong> AGS, Osaka, Phoenix, Volta and more.', 'Battery load test and alternator output check.'] },
+    radiator: { img: 'assets/img/services/radiator.webp', ico: 'fa-temperature-high', tag: 'Cooling System', title: 'Radiator & Cooling System', desc: 'An overheating engine is a serious problem. We diagnose the root cause — whether it\'s the radiator, water pump, thermostat or coolant — and fix it before it causes major damage.', feats: ['Radiator flush and genuine coolant change.', 'Water pump and thermostat replacement.', 'Radiator repair, re-coring or full replacement.', 'Cooling fan and temperature sensor check.', 'Overheating root cause diagnosis with pressure test.'] },
+    detailing: { img: 'assets/img/services/detailing.webp', ico: 'fa-star', tag: 'Detailing', title: 'Car Detailing & Polishing', desc: 'Give your car a showroom finish. Our detailing packages cover deep interior cleaning, exterior decontamination, machine polishing to remove swirl marks and scratches, and long-lasting ceramic coating protection.', feats: ['Full interior vacuum, wipe-down and steam clean.', 'Exterior hand wash, clay bar decontamination and dry.', 'Machine polishing to remove swirls, oxidation and fine scratches.', 'Paint sealant or ceramic coating application.', 'Tyre dressing, glass coating and trim restoration.'] }
 };
 
 function openModal(k) {
     const d = M[k];
-    const img = d.img ? `<img class="m-img" src="${d.img}" alt="${d.title}" onerror="this.outerHTML='<div class=\\'m-img-ph\\'>${d.ico}</div>'">` : `<div class="m-img-ph" style="font-size:4.5rem">${d.ico}</div>`;
+    const img = d.img ? `<img class="m-img" src="${d.img}" alt="${d.title}" onerror="this.outerHTML='<div class=\\'m-img-ph\\'><i class=\\'fas ${d.ico}\\'></i></div>'">` : `<div class="m-img-ph"><i class="fas ${d.ico}"></i></div>`;
     const feats = d.feats.map(f => `<div class="m-feat"><i class="fas fa-circle-check"></i><span>${f}</span></div>`).join('');
     document.getElementById('mInner').innerHTML = `<button class="m-close" onclick="closeModal()"><i class="fas fa-times"></i></button>${img}<div class="m-body"><span class="m-tag2">${d.tag}</span><h2 class="m-h2">${d.title}</h2><p class="m-desc2">${d.desc}</p><div class="m-feats">${feats}</div><div class="m-ft"><div style="display:flex;gap:9px;flex-wrap:wrap"><a href="tel:+923008610621" class="btn-primary-red"><i class="fas fa-phone"></i> +92 300 8610621</a><a href="https://wa.me/923008610621?text=Hi, I need ${encodeURIComponent(d.title)}." class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></div><button class="btn-outline-nav" onclick="closeModal()"><i class="fas fa-times"></i> Close</button></div></div>`;
     document.getElementById('modal').classList.add('on');
@@ -1522,42 +1534,6 @@ const counterObs = new IntersectionObserver((entries) => {
 document.querySelectorAll('#hero, #about, #services').forEach(sec => {
     if (sec) counterObs.observe(sec);
 });
-
-const hacData = {
-    oil: {
-        title: 'Lubricants & Engine Oil Change',
-        desc: '100% Genuine oils (Shell Helix, Total Quartz, ZIC, Mobil 1). Free filter inspection & basic checkup included.',
-        msg: 'Engine Oil Change'
-    },
-    alignment: {
-        title: 'Wheel Alignment & Balancing',
-        desc: 'Computerized 3D laser alignment to exact OEM specs. Eliminates pulling & vibration for smooth driving.',
-        msg: 'Wheel Alignment & Balancing'
-    },
-    ac: {
-        title: 'Car A/C Service & Repair',
-        desc: 'R134a refrigerant gas refill, compressor repair & pressure leak test for ice-cold cooling.',
-        msg: 'Car A/C Service'
-    },
-    electric: {
-        title: 'EFI & OBD Computer Tuning',
-        desc: 'Full OBD-II diagnostic scan, ECU error clearing, spark plugs & EFI tuning to restore engine power.',
-        msg: 'EFI & OBD Scan'
-    }
-};
-
-function selectHacService(key) {
-    document.querySelectorAll('.hac-btn').forEach(btn => btn.classList.remove('active'));
-    const targetBtn = document.getElementById('hac-' + key);
-    if (targetBtn) targetBtn.classList.add('active');
-    
-    const info = hacData[key];
-    if (info) {
-        document.getElementById('hac-title').textContent = info.title;
-        document.getElementById('hac-desc').textContent = info.desc;
-        document.getElementById('hac-book-link').href = 'https://wa.me/923008610621?text=' + encodeURIComponent('Hi, I would like to book a ' + info.msg + ' slot at GM Auto Workshop.');
-    }
-}
 </script>
 </body>
 </html>
